@@ -7,7 +7,7 @@ import InvoiceList from "./InvoiceList"
 
 import data from "./data.json"
 
-export const enum invoiceStatuses {
+const enum invoiceStatuses {
   draft = "draft",
   pending = "pending",
   paid = "paid",
