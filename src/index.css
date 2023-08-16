@@ -1,0 +1,26 @@
+@tailwind base;
+
+body {
+    @apply bg-gray-100 font-jakarta text-black;
+}
+
+.w-sidebar {
+    width: 260px;
+}
+
+.max-w-dialog {
+    max-width: 480px;
+}
+
+.tracking-title {
+    letter-spacing: 0.15rem;
+}
+      
+.overlay {
+    @apply fixed z-40 inset-0 bg-black opacity-50;
+}
+
+.form-label { @apply text-12 font-bold text-gray-300; }
+
+@tailwind components;
+@tailwind utilities;
