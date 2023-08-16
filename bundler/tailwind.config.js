@@ -23,18 +23,20 @@ module.exports = {
     fontSize: fontSizes,
     extend: {
       fontFamily: {
-        'jakarta': ['Plus Jakarta Sans'],
+        'league': ['League Spartan', 'sans-serif'],
       },
       colors: {
         "gray": {
-          100: "#F8F8FB",
+          100: "#F9FAFE",
+          200: "#F8F8FB",
           200: "#DFE3FA",
           300: "#888EB0",
+          400: "#373B53",
         },
         "blue": {
           100: "#7E88C3",
-          200: "#252945",
-          300: "#1E2139",
+          300: "#252945",
+          400: "#1E2139",
         },
         "purple": {
           100: "#9277FF",
@@ -43,6 +45,15 @@ module.exports = {
         "black": "#141625",
         "white": "#FFFFFF",
       },
+      spacing: {
+        "4.5": "1.125rem", // 18px
+      },
+      letterSpacing: {
+        "heading-l": "-0.063em", // -1px
+        "heading-m": "-0.047em", // -0.75px
+        "heading-s": "-0.016em", // -0.25px
+        "body": "-0.006em",      // -0.1px
+      }
     },
   },
   plugins: [],
