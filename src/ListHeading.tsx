@@ -1,12 +1,14 @@
 import arrowDownIcon from "./assets/images/icon-arrow-down.svg"
 import plusIcon from "./assets/images/icon-plus.svg"
 
-const ListHeading = () => {
+const ListHeading = ({ invoiceCount } : { invoiceCount: number }) => {
   return (
     <div className="mt-9 px-6 flex justify-between lg:px-0 md:mt-16 lg:mt-20">
       <div>
         <p className="text-24 md:text-36 font-bold tracking-heading-m md:tracking-heading-l">Invoices</p>
-        <p className="-mt-1 text-14 font-medium leading-4 text-gray-300">No invoices</p>
+        <p className="-mt-1 text-14 font-medium leading-4 text-gray-400">
+          {(invoiceCount === 0) ?  "No invoices" : `${invoiceCount} invoices`}
+        </p>
       </div>
       <div className="flex">
         <button type="button" className="px-4.5 flex items-center font-bold tracking-heading-s lg:pr-10">

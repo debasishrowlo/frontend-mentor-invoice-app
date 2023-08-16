@@ -1,7 +1,7 @@
 @tailwind base;
 
 body {
-    @apply font-league tracking-body text-black;
+    @apply bg-gray-200 font-league tracking-body text-black;
 }
 
 @tailwind components;

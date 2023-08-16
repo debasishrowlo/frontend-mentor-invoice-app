@@ -26,12 +26,14 @@ module.exports = {
         'league': ['League Spartan', 'sans-serif'],
       },
       colors: {
+        "green": "#33D69F",
+        "orange": "#FF8F00",
         "gray": {
           100: "#F9FAFE",
           200: "#F8F8FB",
-          200: "#DFE3FA",
-          300: "#888EB0",
-          400: "#373B53",
+          300: "#DFE3FA",
+          400: "#888EB0",
+          500: "#373B53",
         },
         "blue": {
           100: "#7E88C3",

@@ -5,7 +5,7 @@ import userAvatar from "./assets/images/image-avatar.jpg"
 const Nav = () => {
   return (
     <>
-      <div className="fixed top-0 left-0 w-full flex justify-between bg-gray-400 lg:w-auto lg:h-full lg:flex-col lg:rounded-r-[20px]">
+      <div className="fixed top-0 left-0 w-full flex justify-between bg-gray-500 lg:w-auto lg:h-full lg:flex-col lg:rounded-r-[20px]">
         <div className="inline-block relative md:w-20 md:h-20 p-6 bg-purple-200 rounded-r-[20px] overflow-hidden">
           <div className="absolute z-10 w-full h-full top-1/2 left-0 bg-purple-100 rounded-tl-[20px]" />
           <img src={logo} className="relative z-20 w-7 h-7" />
