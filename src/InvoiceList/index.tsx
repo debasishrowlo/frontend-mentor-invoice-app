@@ -1,9 +1,10 @@
 import { Invoice, getFormattedDate } from "./App"
+import NoInvoicesFound from "./NoInvoicesFound"
 import Status from "./Status"
 
 import arrowRightIcon from "./assets/images/icon-arrow-right.svg"
 
-const InvoiceList = ({
+const List = ({
   invoices,
   showInvoice,
 } : {
@@ -42,6 +43,27 @@ const InvoiceList = ({
         )
       })}
     </div>
+  )
+}
+
+const InvoiceList = ({
+  invoices,
+  showInvoice,
+} : {
+  invoices: Invoice[],
+  showInvoice: Function,
+}) => {
+  return (
+    <>
+      {invoices.length === 0 ? (
+        <NoInvoicesFound />
+      ) : (
+        <List 
+          invoices={invoices}
+          showInvoice={(id:string) => showInvoice(id)}
+        />
+      )}
+    </>
   )
 }
 
