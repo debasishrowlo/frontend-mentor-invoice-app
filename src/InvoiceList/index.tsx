@@ -1,8 +1,8 @@
-import { Invoice, getFormattedDate } from "./App"
+import { Invoice, getFormattedDate } from "../App"
 import NoInvoicesFound from "./NoInvoicesFound"
-import Status from "./Status"
+import Status from "../Status"
 
-import arrowRightIcon from "./assets/images/icon-arrow-right.svg"
+import arrowRightIcon from "@/assets/images/icon-arrow-right.svg"
 
 const List = ({
   invoices,

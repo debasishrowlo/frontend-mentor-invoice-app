@@ -1,4 +1,4 @@
-import emptyScreenIllustration from "./assets/images/illustration-empty.svg"
+import emptyScreenIllustration from "@/assets/images/illustration-empty.svg"
 
 const NoInvoicesScreen = () => {
   return (
