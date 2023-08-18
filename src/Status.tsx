@@ -28,7 +28,7 @@ const Status = (
   }
 
   return (
-    <div className={`w-[104px] py-3.5 flex items-center justify-center ${statusStyles.bg} ${statusStyles.color} rounded-md md:ml-10`}>
+    <div className={`w-[104px] py-3.5 flex items-center justify-center ${statusStyles.bg} ${statusStyles.color} rounded-md`}>
       <span className={`inline-block w-2 h-2 ${statusStyles.indicatorBg} rounded-full`}></span>
       <span className="ml-2 mt-1 leading-4 tracking-heading-s font-bold">{statusStyles.text}</span>
     </div>

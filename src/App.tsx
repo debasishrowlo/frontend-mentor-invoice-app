@@ -53,7 +53,7 @@ export const getFormattedDate = (dateString: string) => {
 
 const App = () => {
   const [invoices, setInvoices] = useState(data)
-  const [activeInvoiceId, setActiveInvoiceId] = useState(null)
+  const [activeInvoiceId, setActiveInvoiceId] = useState("XM9141")
 
   const activeInvoice = activeInvoiceId !== null 
     ? invoices.find(invoice => invoice.id === activeInvoiceId) 

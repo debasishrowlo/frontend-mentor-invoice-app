@@ -30,11 +30,11 @@ const List = ({
               <p className="leading-4 text-14 font-medium text-gray-400">{invoice.clientName}</p>
             </div>
             <div className="mt-6 flex justify-between items-center md:w-1/2 md:mt-0 md:grow">
-              <div className="md:grow md:text-right">
+              <div className="md:grow">
                 <p className="md:hidden leading-4 text-14 font-medium text-gray-400">{paymentDue}</p>
-                <p className="mt-2 text-left leading-6 tracking-heading-s text-16 font-bold md:mt-0">&pound; {invoice.total.toFixed(2)}</p>
+                <p className="mt-2 text-left leading-6 tracking-heading-s text-16 font-bold md:mt-0 md:text-right">&pound; {invoice.total.toFixed(2)}</p>
               </div>
-              <div className="flex items-center">
+              <div className="flex items-center md:ml-10">
                 <Status status={invoice.status} />
                 <img src={arrowRightIcon} className="hidden md:inline-block ml-5" />
               </div>
