@@ -21,6 +21,7 @@ const List = ({
             type="button" 
             className="shadow w-full p-6 bg-white rounded-lg md:flex md:items-center"
             onClick={() => showInvoice(invoice.id)}
+            key={invoice.id}
           >
             <div className="flex justify-between md:w-1/2 md:grow">
               <p className="leading-4 tracking-heading-s font-bold">

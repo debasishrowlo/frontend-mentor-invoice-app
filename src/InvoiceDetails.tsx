@@ -1,6 +1,6 @@
 import { useMediaQuery } from "react-responsive"
 
-import { Invoice, getFormattedDate } from "./App"
+import { Invoice, invoiceStatuses, getFormattedDate } from "./App"
 import Status from "./Status"
 
 import arrowLeftIcon from "./assets/images/icon-arrow-left.svg"
@@ -15,12 +15,26 @@ const Mobile = ({ children } : { children: React.ReactNode }) => {
   return isMobile ? <>{children}</> : null
 }
 
-const Actions = () => {
+const Actions = ({
+  isPaid,
+  markAsPaid,
+} : {
+  isPaid: boolean,
+  markAsPaid: Function,
+}) => {
   return (
     <>
       <button type="button" className="w-full px-6 pt-4 pb-3 bg-gray-100 font-bold text-blue-100 rounded-full">Edit</button>
       <button type="button" className="w-full px-6 pt-4 pb-3 ml-2 bg-red-200 font-bold text-white rounded-full">Delete</button>
-      <button type="button" className="w-full px-6 pt-4 pb-3 ml-2 bg-purple-200 font-bold text-white whitespace-nowrap rounded-full">Mark as Paid</button>
+      {!isPaid && (
+        <button 
+          type="button" 
+          className="w-full px-6 pt-4 pb-3 ml-2 bg-purple-200 font-bold text-white whitespace-nowrap rounded-full"
+          onClick={() => markAsPaid()}
+        >
+          Mark as Paid
+        </button>
+      )}
     </>
   )
 }
@@ -28,10 +42,17 @@ const Actions = () => {
 const InvoiceDetails = ({
   invoice,
   goBack,
+  markAsPaid,
 } : {
   invoice: Invoice,
   goBack: Function,
+  markAsPaid: Function,
 }) => {
+  const actionsProps = {
+    isPaid: invoice.status === invoiceStatuses.paid,
+    markAsPaid,
+  }
+
   return (
     <div className="mt-8 px-6 md:mb-8 lg:px-0">
       <button 
@@ -51,7 +72,7 @@ const InvoiceDetails = ({
         </div>
         <Tablet>
           <div className="flex">
-            <Actions />
+            <Actions {...actionsProps} />
           </div>
         </Tablet>
       </div>
@@ -107,9 +128,9 @@ const InvoiceDetails = ({
               <p className="flex-1 leading-4.5 text-right text-14 font-medium text-blue-100">Total</p>
             </div>
             <div className="space-y-6 md:mt-6">
-              {invoice.items.map(item => {
+              {invoice.items.map((item, index) => {
                 return (
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center" key={index}>
                     <div className="md:w-1/2">
                       <p className="leading-5 tracking-heading-s font-bold">{item.name}</p>
                       <p className="mt-2 leading-5 tracking-heading-s font-bold text-blue-100 md:hidden">{item.quantity} x &pound; {item.price.toFixed(2)}</p>
@@ -137,7 +158,7 @@ const InvoiceDetails = ({
         <>
           <div className="mt-14 h-24" />
           <div className="shadow px-6 py-4 fixed left-0 bottom-0 w-full flex items-center bg-white">
-            <Actions />
+            <Actions {...actionsProps} />
           </div>
         </>
       </Mobile>

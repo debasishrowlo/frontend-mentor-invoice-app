@@ -7,7 +7,7 @@ import InvoiceDetails from "./InvoiceDetails"
 
 import data from "./data.json"
 
-const invoiceStatuses = {
+export const invoiceStatuses = {
   draft: "draft",
   pending: "pending",
   paid: "paid",
@@ -53,11 +53,23 @@ export const getFormattedDate = (dateString: string) => {
 
 const App = () => {
   const [invoices, setInvoices] = useState(data)
-  const [activeInvoiceId, setActiveInvoiceId] = useState("XM9141")
+  const [activeInvoiceId, setActiveInvoiceId] = useState("RT3080");
 
-  const activeInvoice = activeInvoiceId !== null 
-    ? invoices.find(invoice => invoice.id === activeInvoiceId) 
+  const activeInvoiceIndex = activeInvoiceId !== null 
+    ? invoices.findIndex(invoice => invoice.id === activeInvoiceId)
     : null
+  const activeInvoice = activeInvoiceId !== null ? invoices[activeInvoiceIndex] : null
+  
+  const markAsPaid = () => {
+    setInvoices([
+      ...invoices.slice(0, activeInvoiceIndex),
+      {
+        ...activeInvoice,
+        status: invoiceStatuses.paid,
+      },
+      ...invoices.slice(activeInvoiceIndex + 1),
+    ])
+  }
 
   return (
     <div className="min-h-screen flex flex-col lg:flex-row">
@@ -73,6 +85,7 @@ const App = () => {
           <InvoiceDetails
             invoice={activeInvoice}
             goBack={() => setActiveInvoiceId(null)}
+            markAsPaid={() => markAsPaid()}
           />
         )}
       </div>
