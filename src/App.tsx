@@ -71,6 +71,14 @@ const App = () => {
     ])
   }
 
+  const deleteActiveInvoice = () => {
+    setInvoices([
+      ...invoices.slice(0, activeInvoiceIndex),
+      ...invoices.slice(activeInvoiceIndex + 1),
+    ])
+    setActiveInvoiceId(null)
+  }
+
   return (
     <div className="min-h-screen flex flex-col lg:flex-row">
       <Nav />
@@ -86,6 +94,7 @@ const App = () => {
             invoice={activeInvoice}
             goBack={() => setActiveInvoiceId(null)}
             markAsPaid={() => markAsPaid()}
+            deleteInvoice={() => deleteActiveInvoice()}
           />
         )}
       </div>
