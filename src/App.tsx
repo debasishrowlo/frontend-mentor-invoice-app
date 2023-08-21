@@ -1,19 +1,11 @@
+import InvoiceDetails from "./InvoiceDetails"
+
+import data from "./data.json"
 import { useState } from "react"
 
 import Nav from "./Nav"
 import ListHeading from "./ListHeading"
 import InvoiceList from "./InvoiceList"
-import InvoiceDetails from "./InvoiceDetails"
-
-import data from "./data.json"
-
-// change
-
-export const invoiceStatuses = {
-  draft: "draft",
-  pending: "pending",
-  paid: "paid",
-}
 
 export type Invoice = {
   "id": string,
@@ -43,6 +35,14 @@ export type Invoice = {
     "total": number,
   }>,
   "total": number,
+}
+
+// change
+
+export const invoiceStatuses = {
+  draft: "draft",
+  pending: "pending",
+  paid: "paid",
 }
 
 export const getFormattedDate = (dateString: string) => {
