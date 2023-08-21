@@ -7,6 +7,8 @@ import Nav from "./Nav"
 import ListHeading from "./ListHeading"
 import InvoiceList from "./InvoiceList"
 
+// different change but on the same file
+
 export type Invoice = {
   "id": string,
   "createdAt": string,
