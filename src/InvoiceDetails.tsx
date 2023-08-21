@@ -39,7 +39,7 @@ const Actions = ({
       {!isPaid && (
         <button 
           type="button" 
-          className="w-full px-6 pt-4 pb-3 ml-2 bg-purple-200 font-bold text-white whitespace-nowrap rounded-full"
+          className="w-full px-6 pt-4 pb-3 ml-2 bg-purple-200 hover:bg-purple-100 font-bold text-white whitespace-nowrap rounded-full transition duration-300"
           onClick={() => markAsPaid()}
         >
           Mark as Paid
