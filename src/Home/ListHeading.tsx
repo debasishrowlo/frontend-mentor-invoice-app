@@ -1,5 +1,5 @@
-import arrowDownIcon from "./assets/images/icon-arrow-down.svg"
-import plusIcon from "./assets/images/icon-plus.svg"
+import arrowDownIcon from "@/assets/images/icon-arrow-down.svg"
+import plusIcon from "@/assets/images/icon-plus.svg"
 
 const ListHeading = ({ invoiceCount } : { invoiceCount: number }) => {
   return (

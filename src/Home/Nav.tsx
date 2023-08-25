@@ -1,6 +1,6 @@
-import logo from "./assets/images/logo.svg"
-import moonIcon from "./assets/images/icon-moon.svg"
-import userAvatar from "./assets/images/image-avatar.jpg"
+import logo from "@/assets/images/logo.svg"
+import moonIcon from "@/assets/images/icon-moon.svg"
+import userAvatar from "@/assets/images/image-avatar.jpg"
 
 const Nav = () => {
   return (

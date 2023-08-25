@@ -1,11 +1,13 @@
-import { useState, Fragment } from "react"
+import { useState } from "react"
 import { useMediaQuery } from "react-responsive"
-import { Dialog, Transition } from "@headlessui/react"
 
-import { Invoice, invoiceStatuses, getFormattedDate } from "./App"
-import Status from "./Status"
+import { Invoice, invoiceStatuses, getFormattedDate } from "@/Home"
+// import EditDialog from "./EditDialog"
+import Actions from "./Actions"
+import DeleteDialog from "./DeleteDialog"
+import Status from "../Status"
 
-import arrowLeftIcon from "./assets/images/icon-arrow-left.svg"
+import arrowLeftIcon from "@/assets/images/icon-arrow-left.svg"
 
 const Tablet = ({ children } : { children: React.ReactNode }) => {
   const isTablet= useMediaQuery({ minWidth: 768 })
@@ -15,109 +17,6 @@ const Tablet = ({ children } : { children: React.ReactNode }) => {
 const Mobile = ({ children } : { children: React.ReactNode }) => {
   const isMobile = useMediaQuery({ maxWidth: 767 })
   return isMobile ? <>{children}</> : null
-}
-
-const Actions = ({
-  isPaid,
-  markAsPaid,
-  showDeleteDialog,
-} : {
-  isPaid: boolean,
-  markAsPaid: Function,
-  showDeleteDialog: Function,
-}) => {
-  return (
-    <>
-      <button type="button" className="w-full px-6 pt-4 pb-3 bg-gray-100 hover:bg-gray-300 font-bold text-blue-100 rounded-full transition-colors duration-300">Edit</button>
-      <button 
-        type="button" 
-        className="w-full px-6 pt-4 pb-3 ml-2 bg-red-200 hover:bg-red-100 font-bold text-white rounded-full transition-colors duration-300"
-        onClick={() => showDeleteDialog()}
-      >
-        Delete
-      </button>
-      {!isPaid && (
-        <button 
-          type="button" 
-          className="w-full px-6 pt-4 pb-3 ml-2 bg-purple-200 hover:bg-purple-100 font-bold text-white whitespace-nowrap rounded-full transition-colors duration-300"
-          onClick={() => markAsPaid()}
-        >
-          Mark as Paid
-        </button>
-      )}
-    </>
-  )
-}
-
-const DeleteDialog = ({
-  invoiceId,
-  isVisible,
-  closeDialog,
-  deleteInvoice,
-} : {
-  invoiceId: string,
-  isVisible: boolean,
-  closeDialog: Function,
-  deleteInvoice: Function,
-}) => {
-  return (
-    <Transition appear show={isVisible} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={() => closeDialog()}>
-        <Transition.Child
-          as={Fragment}
-          enter="ease-out duration-300"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="ease-in duration-200"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-        >
-          <div className="fixed inset-0 bg-black opacity-75" />
-        </Transition.Child>
-        <div className="fixed inset-0 overflow-y-auto">
-          <div className="flex min-h-full items-center justify-center p-4 text-center">
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95"
-            >
-              <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-lg bg-white p-8 text-left align-middle shadow-xl transition-all">
-                <Dialog.Title
-                  as="h3"
-                  className="leading-8 tracking-heading-m text-24 font-bold leading-6"
-                >
-                  Confirm Deletion
-                </Dialog.Title>
-                <div className="mt-2">
-                  <p className="leading-5 text-14 font-medium text-gray-400">Are you sure you want to delete invoice #{invoiceId}? This action cannot be undone.</p>
-                </div>
-                <div className="mt-5 flex justify-end">
-                  <button 
-                    type="button" 
-                    className="w-24 px-6 pt-4 pb-3 bg-gray-100 font-bold text-blue-100 rounded-full"
-                    onClick={() => closeDialog()}
-                  >
-                    Cancel
-                  </button>
-                  <button 
-                    type="button" 
-                    className="w-24 px-6 pt-4 pb-3 ml-2 bg-red-200 font-bold text-white rounded-full"
-                    onClick={() => deleteInvoice()}
-                  >
-                    Delete
-                  </button>
-                </div>
-              </Dialog.Panel>
-            </Transition.Child>
-          </div>
-        </div>
-      </Dialog>
-    </Transition>
-  )
 }
 
 const InvoiceDetails = ({
@@ -132,6 +31,7 @@ const InvoiceDetails = ({
   deleteInvoice: Function,
 }) => {
   const [deleteDialogVisible, setDeleteDialogVisible] = useState(false)
+  const [editDialogVisible, setEditDialogVisible] = useState(true)
 
   const actionsProps = {
     isPaid: invoice.status === invoiceStatuses.paid,
@@ -248,6 +148,7 @@ const InvoiceDetails = ({
           </div>
         </Mobile>
       </div>
+      {/* <EditDialog isVisible={editDialogVisible} /> */}
       <DeleteDialog
         invoiceId={invoice.id}
         isVisible={deleteDialogVisible}

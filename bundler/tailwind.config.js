@@ -1,11 +1,3 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
-const globEntries = require('webpack-glob-entries-extended')
-
-const paths = require("./paths.js")
-
-// NOTE: Required because webpack does not support extended globs
-const content = Object.values(globEntries(paths.src + "/**/*.{html,js,jsx,ts,tsx}"))
-
 const fontSizes = {}
 const minFontSize = 12
 const maxFontSize = 70
@@ -17,7 +9,7 @@ while (i <= maxFontSize) {
 }
 
 module.exports = {
-  content: content,
+  content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   darkMode: "class",
   theme: {
     fontSize: fontSizes,

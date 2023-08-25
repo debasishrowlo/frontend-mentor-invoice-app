@@ -19,7 +19,7 @@
     "types": ["node"],
     "typeRoots": ["src/modules.d.ts"],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": [

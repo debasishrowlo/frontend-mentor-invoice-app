@@ -1,4 +1,4 @@
-import { Invoice, getFormattedDate } from "../App"
+import { Invoice, getFormattedDate } from "@/Home"
 import NoInvoicesFound from "./NoInvoicesFound"
 import Status from "../Status"
 
