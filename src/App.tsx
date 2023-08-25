@@ -1,13 +1,11 @@
-import InvoiceDetails from "./InvoiceDetails"
-
-import data from "./data.json"
 import { useState } from "react"
 
-import Nav from "./Nav"
-import ListHeading from "./ListHeading"
+import InvoiceDetails from "./InvoiceDetails"
 import InvoiceList from "./InvoiceList"
+import ListHeading from "./ListHeading"
+import Nav from "./Nav"
 
-// different change but on the same file
+import data from "./data.json"
 
 export type Invoice = {
   "id": string,
@@ -38,8 +36,6 @@ export type Invoice = {
   }>,
   "total": number,
 }
-
-// change
 
 export const invoiceStatuses = {
   draft: "draft",
