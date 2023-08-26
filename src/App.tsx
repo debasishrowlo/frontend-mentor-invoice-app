@@ -1,7 +1,5 @@
 import Home from "./Home"
 
-import data from "./data.json"
-
 export type Invoice = {
   "id": string,
   "createdAt": string,
@@ -38,12 +36,6 @@ export const invoiceStatuses = {
   paid: "paid",
 }
 
-const App = () => {
-  return (
-    <>
-      <Home />
-    </>
-  )
-}
+const App = () => <Home />
 
 export default App
