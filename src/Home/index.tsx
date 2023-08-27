@@ -3,7 +3,7 @@ import { useState } from "react"
 import InvoiceDetails from "./InvoiceDetails"
 import InvoiceList from "./InvoiceList"
 import ListHeading from "./ListHeading"
-import Nav from "./Nav"
+import Header from "./Header"
 
 import data from "@/data.json"
 
@@ -81,7 +81,7 @@ const Home = () => {
 
   return (
     <div className="min-h-screen flex flex-col lg:flex-row">
-      <Nav />
+      <Header />
       <div className="max-w-3xl grow flex flex-col lg:mx-auto">
         <ListHeading invoiceCount={invoices.length} />
         {(activeInvoiceId === null) ? (
